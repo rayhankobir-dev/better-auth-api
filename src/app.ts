@@ -16,7 +16,9 @@ app.use(
     credentials: true,
   })
 );
-
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 app.all("/api/auth/*splat", toNodeHandler(auth));
 app.use(express.json());
 
