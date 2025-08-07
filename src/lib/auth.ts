@@ -16,6 +16,7 @@ import {
   user,
   verification,
   twoFactor as twoFactorSchema,
+  rateLimit as rateLimitSchema,
 } from "../db/schema";
 import dotenv from "dotenv";
 dotenv.config();
@@ -37,6 +38,7 @@ export const auth = betterAuth({
       account: account,
       verification: verification,
       twoFactor: twoFactorSchema,
+      rateLimit: rateLimitSchema,
     },
   }),
   emailAndPassword: {
