@@ -33,6 +33,7 @@ export const auth = betterAuth({
       domain: ".vercel.app",
     },
     defaultCookieAttributes: {
+      path: "/",
       secure: true,
       httpOnly: true,
       sameSite: "none",
