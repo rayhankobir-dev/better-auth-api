@@ -22,7 +22,7 @@ dotenv.config();
 
 export const auth = betterAuth({
   appName: "admin-studio",
-  trustedOrigins: ["http://localhost:3000"],
+  trustedOrigins: [String(process.env.FRONTEND_URL)],
   rateLimit: {
     enabled: true,
     window: 60,

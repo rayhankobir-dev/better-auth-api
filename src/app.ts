@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://192.168.1.198:3000"], // not "*", because you're likely sending credentials
+    origin: [String(process.env.FRONTEND_URL)], // not "*", because you're likely sending credentials
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
