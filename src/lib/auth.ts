@@ -22,6 +22,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const auth = betterAuth({
+  baseURL: String(process.env.BETTER_AUTH_URL),
   appName: "admin-studio",
   secret: process.env.BETTER_AUTH_SECRET,
   advanced: {
@@ -29,6 +30,7 @@ export const auth = betterAuth({
     useSecureCookies: true,
     crossSubDomainCookies: {
       enabled: true,
+      domain: ".vercel.app",
     },
     defaultCookieAttributes: {
       secure: true,
