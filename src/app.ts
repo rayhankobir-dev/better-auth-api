@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [String(process.env.FRONTEND_URL)], // not "*", because you're likely sending credentials
+    origin: [String(process.env.FRONTEND_URL)],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
