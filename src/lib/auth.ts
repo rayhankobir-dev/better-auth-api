@@ -26,9 +26,9 @@ export const auth = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET,
   advanced: {
     cookiePrefix: "admin-studio",
+    useSecureCookies: true,
     crossSubDomainCookies: {
       enabled: true,
-      domain: ".vercel.app",
     },
     defaultCookieAttributes: {
       secure: true,
