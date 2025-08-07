@@ -1,19 +1,21 @@
 {
   "compilerOptions": {
-    "target": "ES2022", // Modern JavaScript output
-    "module": "ES2022", // For ESM (your package uses "type": "module")
-    "lib": ["ES2022"], // No need for DOM libraries in backend
-    "moduleResolution": "node",
-    "outDir": "dist", // Where compiled JS files will go
-    "rootDir": "src", // Your source TypeScript files
-    "esModuleInterop": true,
+    "target": "ES2022", // Modern JS target (good)
+    "module": "ES2022", // Use ES modules
+    "lib": ["ES2022"], // No DOM (backend only)
+    "moduleResolution": "node", // Required for Node
+    "outDir": "dist", // Build output dir
+    "rootDir": "src", // Where your .ts files live
+    "esModuleInterop": true, // Allow commonjs default imports
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "allowJs": false, // Usually avoid JS files in TypeScript backend
-    "noEmit": false, // We DO want to emit output for build
-    "isolatedModules": false // Not needed unless using `tsc` with ES modules directly
+    "strict": true, // Strict type checking
+    "skipLibCheck": true, // Skip type checks on dependencies
+    "resolveJsonModule": true, // Allow importing JSON files
+    "allowJs": false, // Don’t allow JS files
+    "noEmit": false, // We want output JS
+    "isolatedModules": true, // Required for ESM compatibility
+    "allowImportingTsExtensions": false, // Prevent importing .ts files (correct)
+    "preserveSymlinks": true // Helps with monorepo-style setups
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]

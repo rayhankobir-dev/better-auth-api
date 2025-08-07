@@ -1,13 +1,13 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "type": "module",
+  "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "start": "tsx src/server.ts",
-    "build": "tsc"
+    "start": "node dist/server.js",
+    "build": "tsup src/server.ts --format esm --outDir dist"
   },
   "dependencies": {
     "@vercel/postgres": "^0.10.0",
