@@ -23,7 +23,26 @@ dotenv.config();
 
 export const auth = betterAuth({
   appName: "admin-studio",
-  trustedOrigins: [String(process.env.FRONTEND_URL)],
+  secret: process.env.BETTER_AUTH_SECRET,
+  advanced: {
+    cookiePrefix: "admin-studio",
+    crossSubDomainCookies: {
+      enabled: true,
+      domain: ".vercel.app",
+    },
+    defaultCookieAttributes: {
+      secure: true,
+      httpOnly: true,
+      sameSite: "none",
+      partitioned: true,
+    },
+  },
+  trustedOrigins: [
+    String(process.env.FRONTEND_URL),
+    "http://localhost:3000",
+    "https://better-auth-api.onrender.com",
+    "https://twikflow-demo.vercel.app",
+  ],
   rateLimit: {
     enabled: true,
     window: 60,
